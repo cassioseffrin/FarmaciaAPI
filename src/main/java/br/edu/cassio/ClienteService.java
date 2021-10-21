@@ -1,5 +1,7 @@
 package br.edu.cassio;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import br.edu.cassio.dao.ClienteDao;
@@ -9,12 +11,20 @@ import br.edu.cassio.model.Cliente;
 public class ClienteService implements ClienteInterface {
 
 	private ClienteDao clienteDao;
-
-	public String getCliente(Integer id) {
-
+	
+	
+	ClienteService(){
 		clienteDao = new ClienteDao();
+	}
+	
+	public String getCliente(Integer id) {
+		
 		Cliente cli = clienteDao.buscar(id);
-
 		return "Ola cliente " + cli.getNome() + "!";
+	}
+
+	@Override
+	public List<Cliente> getClientes() {
+		return clienteDao.listar();
 	}
 }
