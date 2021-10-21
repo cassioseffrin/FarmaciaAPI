@@ -27,4 +27,15 @@ public class ClienteService implements ClienteInterface {
 	public List<Cliente> getClientes() {
 		return clienteDao.listar();
 	}
+
+	@Override
+	public void salvar(Cliente cliente) {
+		clienteDao.inserir(cliente);
+	}
+
+	@Override
+	public void alterar(Cliente cliente) {
+		clienteDao.alterar(cliente);
+		
+	}
 }

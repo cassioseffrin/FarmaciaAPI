@@ -33,4 +33,26 @@ public class ClienteResource {
     public List<Cliente> getClientes( ) {
         return this.clienteInterface.getClientes();
     }
+    
+    @POST
+    @Path("/salvar")
+    public boolean salvarCliente(@RequestBody Cliente cliente) {
+    	System.out.println(cliente.getNome());
+    	
+    	this.clienteInterface.salvar(cliente);
+		return true;
+ 
+    }
+    
+    
+    @POST
+    @Path("/alterar")
+    public boolean alterarCliente(@RequestBody Cliente cliente) {
+    	System.out.println(cliente.getNome());
+    	
+    	this.clienteInterface.alterar(cliente);
+		return true;
+ 
+    }
+
 }
